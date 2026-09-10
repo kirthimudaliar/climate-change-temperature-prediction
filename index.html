@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Climate Change Temperature Prediction</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+
+    background:#f2f7ff;
+
+}
+
+.container{
+
+    width:900px;
+    margin:30px auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0px 0px 15px rgba(0,0,0,.2);
+
+}
+
+h1{
+
+    text-align:center;
+    color:#00695c;
+    margin-bottom:30px;
+
+}
+
+.grid{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+
+}
+
+label{
+
+    font-weight:bold;
+    display:block;
+    margin-bottom:6px;
+
+}
+
+input,select{
+
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:15px;
+
+}
+
+button{
+
+    width:100%;
+    padding:15px;
+    margin-top:30px;
+    font-size:18px;
+    background:#00897b;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+
+}
+
+button:hover{
+
+    background:#00695c;
+
+}
+
+.result{
+
+    margin-top:25px;
+    padding:20px;
+    background:#e8f5e9;
+    border-left:6px solid green;
+    border-radius:8px;
+    text-align:center;
+
+}
+
+.result h2{
+
+    color:#2e7d32;
+
+}
+
+.result h3{
+
+    font-size:35px;
+    color:#00695c;
+    margin-top:10px;
+
+}
+
+footer{
+
+    text-align:center;
+    margin-top:30px;
+    color:gray;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Climate Change Impact Analysis and Future Temperature Prediction</h1>
+
+<form action="/predict" method="POST">
+
+<div class="grid">
+
+<div>
+<label>Year</label>
+<input type="number" name="Year" required>
+</div>
+
+<div>
+<label>Month</label>
+<input type="number" name="Month" min="1" max="12" required>
+</div>
+
+<div>
+<label>Country</label>
+
+<select name="Country">
+
+<option value="India">India</option>
+<option value="USA">USA</option>
+<option value="China">China</option>
+<option value="Brazil">Brazil</option>
+<option value="Australia">Australia</option>
+
+</select>
+
+</div>
+
+<div>
+<label>Latitude</label>
+<input type="number" step="any" name="Latitude" required>
+</div>
+
+<div>
+<label>Longitude</label>
+<input type="number" step="any" name="Longitude" required>
+</div>
+
+<div>
+<label>CO₂ Emissions</label>
+<input type="number" step="any" name="CO2_Emissions" required>
+</div>
+
+<div>
+<label>Methane Emissions</label>
+<input type="number" step="any" name="Methane_Emissions" required>
+</div>
+
+<div>
+<label>Nitrous Oxide Emissions</label>
+<input type="number" step="any" name="NitrousOxide_Emissions" required>
+</div>
+
+<div>
+<label>Forest Area</label>
+<input type="number" step="any" name="Forest_Area" required>
+</div>
+
+<div>
+<label>Renewable Energy</label>
+<input type="number" step="any" name="Renewable_Energy" required>
+</div>
+
+<div>
+<label>Population</label>
+<input type="number" step="any" name="Population" required>
+</div>
+
+<div>
+<label>Energy Consumption</label>
+<input type="number" step="any" name="Energy_Consumption" required>
+</div>
+
+<div>
+<label>Rainfall</label>
+<input type="number" step="any" name="Rainfall" required>
+</div>
+
+<div>
+<label>Humidity</label>
+<input type="number" step="any" name="Humidity" required>
+</div>
+
+</div>
+
+<button type="submit">
+Predict Temperature
+</button>
+
+</form>
+
+{% if prediction %}
+
+<div class="result">
+
+<h2>Predicted Average Temperature</h2>
+
+<h3>🌡 {{ prediction }} °C</h3>
+
+</div>
+
+{% endif %}
+
+<footer>
+
+PGP Data Science Capstone Project<br>
+Climate Change Impact Analysis & Future Temperature Prediction Using Machine Learning
+
+</footer>
+
+</div>
+
+</body>
+
+</html>
